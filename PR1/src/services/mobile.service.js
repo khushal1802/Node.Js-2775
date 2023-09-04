@@ -15,6 +15,22 @@ const updateDetails = async (mobileId, updateBody) => {
   return Mobile.findByIdAndUpdate(mobileId, { $set: updateBody });
 };
 
+const manageMobileStatus=async(mobileId)=>{
+  const mobileExists=await getMobileById(mobileId);
+  if(!mobileExists){
+    throw Error("mobil not found");
+  }
+  return Mobile.findOneAndUpdate(
+    {_is:mobileId},
+    {
+      $set:{
+        is_active: !mobileExists.is_active,
+      },
+    },
+    { new :true}
+  );
+};
+
 const deleteMobile = async (mobileId) => {
   return Mobile.findByIdAndDelete(mobileId);
 };

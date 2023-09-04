@@ -14,17 +14,21 @@ const productSchema = new mongoose.Schema(
         type:Number,
         trim:true,
     },
-    quality:{
+    quantity:{
         type: String,
         trim:true,
     },
-    stock:{
-        type: Number,
-        trim:true,
+    status:{
+      type : Boolean ,
+      default : false
     },
     is_active: {
       type: Boolean,
     default: true,
+    },
+    category:{
+      type:mongoose.Types.ObjectId,
+      ref:"Category"
     },
   },
   {
@@ -33,6 +37,6 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-const Category = mongoose.model("category",categorySchema)
+const Product = mongoose.model("product",productSchema)
 
-module.exports = Category
+module.exports = Product
