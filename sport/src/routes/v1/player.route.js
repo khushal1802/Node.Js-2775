@@ -10,8 +10,8 @@ const router = express.Router();
 /** Create player */
 router.post(
   "/create-player",
-  upload.single("player_image"),
   auth(),
+  upload.single("player_img"),
   validate(playerValidation.createPlayer),
   playerController.createPlayer
 );
@@ -25,7 +25,7 @@ router.get("/list", playerController.getPlayerById);
 /** Update player details */
 router.put(
   "/update-details/:playerId",
-  upload.single("player_image"),
+  upload.single("player_img"),
   playerController.updatePlayer
 );
 

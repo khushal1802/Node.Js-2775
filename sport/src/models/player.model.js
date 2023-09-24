@@ -1,17 +1,33 @@
 const mongoose = require("mongoose");
+const config=require("../config/config")
 
-const sportSchema = new mongoose.Schema(
+const playerSchema = new mongoose.Schema(
   {
-    sport_name: {
+    first_name: {
       type: String,
       trim: true,
     },
-    sport_category: {
+    last_name: {
       type: String,
       trim: true,
     },
-    player_img: {
-      type :String ,
+    email: {
+      type: String,
+      trim: true,
+    },
+    phone_no: {
+      type: Number,
+    },
+    player_img:{
+      type: String,
+    },
+    specifiaction: {
+      type: String,
+      trim: true,
+    },
+    coach: {
+      type: mongoose.Types.ObjectId,
+      ref: "coach",
     },
     is_active: {
       type: Boolean,
@@ -31,6 +47,7 @@ const sportSchema = new mongoose.Schema(
   }
 );
 
-const Sport = mongoose.model("sport", sportSchema);
+const Player = mongoose.model("player", playerSchema);
 
-module.exports = Sport;
+module.exports = Player;
+

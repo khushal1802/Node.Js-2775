@@ -1,26 +1,21 @@
 const mongoose = require("mongoose");
 
-const categorySchema = new mongoose.Schema(
+const sportSchema = new mongoose.Schema(
   {
-    subCategory_name: {
+    sport_name: {
       type: String,
       trim: true,
     },
-    subCategory_desc: {
+    sport_category: {
       type: String,
       trim: true,
     },
-    price: {
-      type: Number,
-      default: 0,
-    },
-    category: {
-      type: mongoose.Types.ObjectId,
-      ref: "category",
+    player_img: {
+      type: String,
     },
     is_active: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   {
@@ -29,6 +24,6 @@ const categorySchema = new mongoose.Schema(
   }
 );
 
-const SubCategory = mongoose.model("subCategory", categorySchema);
+const Sport = mongoose.model("sport", sportSchema);
 
-module.exports = SubCategory;
+module.exports = Sport;

@@ -7,7 +7,7 @@ const createPlayer = {
     last_name: Joi.string().trim().required(),
     email: Joi.string().trim().required(),
     phone_no: Joi.string().trim().required(),
-    player_img: Joi.string().allow(),
+    player_img: Joi.string().allow() ,
     specification: Joi.string().trim().required(),
     coach: Joi.string().trim().required(),
   }),

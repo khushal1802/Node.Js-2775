@@ -1,9 +1,16 @@
 const { playerService } = require("../services");
+const fs = require("fs");
 
 /** Create Player controller */
 const createPlayer = async (req, res) => {
   try {
     const reqBody = req.body;
+
+  if (req.file) {
+    reqBody.player_img = req.file.filename;
+  } else {
+    throw new Error("player image is required!");
+  }
 
     const playerExists = await playerService.createPlayer(reqBody);
     if (!playerExists) {
