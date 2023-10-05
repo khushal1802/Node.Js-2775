@@ -31,6 +31,6 @@ router.put(
 
 
 /** Delete player */
-router.delete("/delete/:playerId", playerController.deleteLeag);
+router.delete("/delete/:playerId", playerController.deletePlayer);
 
 module.exports = router;

@@ -97,7 +97,7 @@ const updatePlayer = async (req, res) => {
 };
 
 /** Delete Player controller */
-const deleteLeag = async (req, res) => {
+const deletePlayer = async (req, res) => {
   try {
     const playerId = req.params.playerId;
 
@@ -125,5 +125,5 @@ module.exports = {
   getPlayerList,
   getPlayerById,
   updatePlayer,
-  deleteLeag,
+  deletePlayer,
 };
